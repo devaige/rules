@@ -1,0 +1,6 @@
+[submodule "sstap"]
+	path = sstap
+	url = git@github.com:devaige/SSTap-Rule.git
+[submodule "blackmatrix"]
+	path = blackmatrix
+	url = git@github.com:devaige/ios_rule_script.git
