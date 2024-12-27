@@ -1,4 +1,4 @@
-package dev.aige.rules.provider.sstap
+package dev.aige.rules.provider.sstap.entities
 
 // SSTap-Rule 规则文件的配置信息
 // 参考：https://github.com/devaige/SSTap-Rule/blob/master/doc/home.md

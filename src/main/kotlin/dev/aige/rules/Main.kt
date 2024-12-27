@@ -1,25 +1,28 @@
 package dev.aige.rules
 
-import dev.aige.rules.exporter.Exporter
-import dev.aige.rules.exporter.impls.EARuleExporter
-import dev.aige.rules.exporter.impls.OpenAIRuleExporter
+import dev.aige.rules.core.generator.RuleFileGenerator
+import dev.aige.rules.core.generator.clash.EAClashRuleFileGenerator
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 import java.io.File
 import java.nio.file.Paths
 
-private const val OUTPUT: String = "mine"
+const val OUTPUT: String = "mine"
 
-private val exporters: List<Exporter> = listOf(
-    OpenAIRuleExporter(),
-    EARuleExporter(),
+private val generators: List<RuleFileGenerator<*>> = listOf(
+    EAClashRuleFileGenerator(),
 )
 
-suspend fun main() {
+fun main() = runBlocking {
     val output: File = Paths.get(OUTPUT).toAbsolutePath().toFile()
-    println("输出目录：${output}")
-    if (output.exists() && output.isDirectory) {
-        output.deleteRecursively()
-        println("删除规则目录：${output}")
-    }
+    if (output.exists() && output.isDirectory) output.deleteRecursively()
     output.mkdirs()
-    exporters.forEach { it.export(output) }
+    val semaphore = Semaphore(8)
+    generators.forEach {
+        launch {
+            semaphore.withPermit { it.generate() }
+        }
+    }
 }

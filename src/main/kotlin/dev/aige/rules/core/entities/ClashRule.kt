@@ -1,14 +1,23 @@
-package dev.aige.rules.core
+package dev.aige.rules.core.entities
 
+/**
+ * Clash 规则对象
+ * 这里忽略了规则策略，因为策略由具体不同的代理软件进行定义，本脚本只针对规则进行整理
+ *
+ * @param type 规则类型
+ * @param argument 规则参数
+ * @param isDNSResolve 是否进行 DNS 解析
+ */
 data class ClashRule(
     val type: Type,
     val argument: String,
     val isDNSResolve: Boolean
-) {
+) : Rule() {
     companion object {
         const val DNS_RESOLVE: String = "no-resolve"
     }
 
+    override fun format(): String = toString()
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
