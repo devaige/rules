@@ -6,9 +6,7 @@ import dev.aige.rules.provider.sstap.entities.SSTapFile
 import dev.aige.rules.provider.sstap.translator.SSTapClashRuleTranslator
 
 class EAClashRuleFileGenerator : ClashRuleFileGenerator("EA.list") {
-    override suspend fun generate() {
-        val rules: MutableSet<ClashRule> = mutableSetOf()
-
+    override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
         val eaBlackMatrixFile = BlackMatrixFile("EA/EA.list")
         rules.addAll(eaBlackMatrixFile.rules)
@@ -22,7 +20,5 @@ class EAClashRuleFileGenerator : ClashRuleFileGenerator("EA.list") {
         apexUUSSTapFIle.rules.map { rule ->
             rules.add(SSTapClashRuleTranslator(apexSSTapFIle.conf).translate(rule))
         }
-
-        write(rules)
     }
 }
