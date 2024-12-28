@@ -504,6 +504,9 @@ class ProxyClashRuleFileGenerator : ClashRuleFileGenerator("Proxy.list") {
     )
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
+        // 添加自定义规则
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "rapidapi.com"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "openxlab.org.cn"))
         // 读取 BlackMatrix 配置文件
         blackMatrixFilePrefix.forEach { rules.addBlackMatrixFileRules(it) }
         // 读取 ACL4SSR 配置文件
