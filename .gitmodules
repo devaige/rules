@@ -4,3 +4,6 @@
 [submodule "blackmatrix"]
 	path = blackmatrix
 	url = git@github.com:devaige/ios_rule_script.git
+[submodule "ACL4SSR"]
+	path = ACL4SSR
+	url = git@github.com:devaige/ACL4SSR.git
