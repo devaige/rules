@@ -11,7 +11,7 @@ package dev.aige.rules.core.entities
 data class ClashRule(
     val type: Type,
     val argument: String,
-    val isDNSResolve: Boolean
+    val isDNSResolve: Boolean = false,
 ) : Rule() {
     companion object {
         const val DNS_RESOLVE: String = "no-resolve"

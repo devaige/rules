@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+    implementation("com.vladsch.flexmark:flexmark-all:0.64.0")
     testImplementation(kotlin("test"))
 }
 

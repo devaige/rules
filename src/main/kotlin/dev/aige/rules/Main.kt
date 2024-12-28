@@ -1,7 +1,7 @@
 package dev.aige.rules
 
 import dev.aige.rules.core.generator.RuleFileGenerator
-import dev.aige.rules.core.generator.clash.EAClashRuleFileGenerator
+import dev.aige.rules.core.generator.clash.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Semaphore
@@ -12,7 +12,27 @@ import java.nio.file.Paths
 const val OUTPUT: String = "mine"
 
 private val generators: List<RuleFileGenerator<*>> = listOf(
+    DirectClashRuleFileGenerator(),
+    OpenAIClashRuleFileGenerator(),
+    ClaudeClashRuleFileGenerator(),
+    PerplexityClashRuleFileGenerator(),
+    GoogleClashRuleFileGenerator(),
+    TelegramClashRuleFileGenerator(),
+    TwitterClashRuleFileGenerator(),
+    BinanceClashRuleFileGenerator(),
+    GitHubClashRuleFileGenerator(),
+    LineClashRuleFileGenerator(),
+    NetflixClashRuleFileGenerator(),
+    TikTokClashRuleFileGenerator(),
+    RedditClashRuleFileGenerator(),
+    AppleClashRuleFileGenerator(),
+    MetaClashRuleFileGenerator(),
+    MicrosoftClashRuleFileGenerator(),
+    StripeClashRuleFileGenerator(),
+    PCClashRuleFileGenerator(),
     EAClashRuleFileGenerator(),
+    HKClashRuleFileGenerator(),
+    RejectClashRuleFileGenerator(),
 )
 
 fun main() = runBlocking {
