@@ -135584,3 +135584,13 @@ IP-CIDR,221.226.128.146/32,no-resolve
 DOMAIN-SUFFIX,vv.video.qq.com
 USER-AGENT,MicroMessenger*
 USER-AGENT,WeChat*
+DOMAIN-KEYWORD,qihoo
+DOMAIN-SUFFIX,qiguangtech.cn
+DOMAIN-SUFFIX,jiagu.360.cn
+DOMAIN-SUFFIX,claxh.aige.dev
+DOMAIN-SUFFIX,blog.aige.dev
+DOMAIN-SUFFIX,cloudfront.net
+DOMAIN-SUFFIX,nineton.cn
+PROCESS-NAME,360jiaguApp
+DST-PORT,22
+DST-PORT,9128

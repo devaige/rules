@@ -362,5 +362,20 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         blackMatrixFilePrefix.forEach { rules.addBlackMatrixFileRules(it) }
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules })
+        // 添加一些自定义的规则
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_KEYWORD, "qihoo"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "gangduotech.com"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "qiguangtech.cn"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "umeng.com"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "byd.com"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "jiagu.360.cn"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "claxh.aige.dev"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "jiguang.cn"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "blog.aige.dev"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "cloudfront.net"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "nineton.cn"))
+        rules.add(ClashRule(ClashRule.Type.PROCESS_NAME, "360jiaguApp"))
+        rules.add(ClashRule(ClashRule.Type.DST_PORT, "22"))
+        rules.add(ClashRule(ClashRule.Type.DST_PORT, "9128"))
     }
 }
