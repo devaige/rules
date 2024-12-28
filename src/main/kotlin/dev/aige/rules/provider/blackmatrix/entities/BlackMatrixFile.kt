@@ -20,9 +20,8 @@ data class BlackMatrixFile(private val filepath: String) {
 
                 val type: ClashRule.Type = ClashRule.Type.from(parts[0])
                 val condition: String = parts[1]
-                // BlackMatrix 的这个 IPv6 规则好像有问题：
-                // IP-CIDR6,2001:4060:1:1005::10:32,no-resolve
-                if (type == ClashRule.Type.IP_CIDR6 && condition == "2001:4060:1:1005::10:32") return@forEach
+                // BlackMatrix 的 STUN 这个规则下的 IPv6 规则好像有问题，直接忽略吧先
+                if (filepath == "STUN/STUN.list" && type == ClashRule.Type.IP_CIDR6) return@forEach
                 rules.add(
                     ClashRule(
                         type, condition,
