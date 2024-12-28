@@ -31,7 +31,7 @@ private val generators: List<RuleFileGenerator<*>> = listOf(
     StripeClashRuleFileGenerator(),
     PCClashRuleFileGenerator(),
     EAClashRuleFileGenerator(),
-    HKClashRuleFileGenerator(),
+    ProxyClashRuleFileGenerator(),
     RejectClashRuleFileGenerator(),
 )
 

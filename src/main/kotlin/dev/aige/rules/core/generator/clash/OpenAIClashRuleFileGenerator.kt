@@ -1,7 +1,9 @@
 package dev.aige.rules.core.generator.clash
 
 import dev.aige.rules.core.entities.ClashRule
+import dev.aige.rules.provider.acl4ssr.entities.ACL4SSRFile
 import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixFile
+import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixPath
 
 class OpenAIClashRuleFileGenerator : ClashRuleFileGenerator("OpenAI.list") {
     private companion object {
@@ -11,9 +13,17 @@ class OpenAIClashRuleFileGenerator : ClashRuleFileGenerator("OpenAI.list") {
         )
     }
 
+    private val blackMatrixFilePaths: Set<BlackMatrixPath> = setOf(
+        BlackMatrixPath("OpenAI"),
+    )
+    private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
+        ACL4SSRFile("OpenAi"),
+    )
+
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
-        val openAIBlackMatrixFile = BlackMatrixFile("OpenAI/OpenAI.list")
-        rules.addAll(openAIBlackMatrixFile.rules - skip)
+        rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules - skip })
+        // 读取 ACL4SSR 配置文件
+        rules.addAll(acL4SSRFiles.flatMap { it.rules - skip })
     }
 }

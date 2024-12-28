@@ -26,3 +26,5 @@ DOMAIN-SUFFIX,ttwebview.com
 DOMAIN-KEYWORD,musical.ly
 DOMAIN-KEYWORD,tiktok
 PROCESS-NAME,com.zhiliaoapp.musically
+USER-AGENT,TikTok*
+DOMAIN-KEYWORD,tiktokcdn

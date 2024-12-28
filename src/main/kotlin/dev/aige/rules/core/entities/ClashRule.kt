@@ -43,6 +43,8 @@ data class ClashRule(
     }
 
     enum class Type(val value: String) {
+        USER_AGENT("USER-AGENT"),
+        URL_REGEX("URL-REGEX"),
         DOMAIN("DOMAIN"),
         DOMAIN_SUFFIX("DOMAIN-SUFFIX"),
         DOMAIN_KEYWORD("DOMAIN-KEYWORD"),

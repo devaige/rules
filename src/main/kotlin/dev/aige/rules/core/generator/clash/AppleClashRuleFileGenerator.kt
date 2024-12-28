@@ -1,50 +1,42 @@
 package dev.aige.rules.core.generator.clash
 
 import dev.aige.rules.core.entities.ClashRule
+import dev.aige.rules.provider.acl4ssr.entities.ACL4SSRFile
 import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixFile
+import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixPath
 
 class AppleClashRuleFileGenerator : ClashRuleFileGenerator("Apple.list") {
+    private val blackMatrixFilePaths: Set<BlackMatrixPath> = setOf(
+        BlackMatrixPath("Apple"),
+        BlackMatrixPath("AppleDev"),
+        BlackMatrixPath("AppleFirmware"),
+        BlackMatrixPath("AppleHardware"),
+        BlackMatrixPath("AppleID"),
+        BlackMatrixPath("AppleMail"),
+        BlackMatrixPath("AppleMedia"),
+        BlackMatrixPath("AppleMusic"),
+        BlackMatrixPath("AppleNews"),
+        BlackMatrixPath("AppleProxy"),
+        BlackMatrixPath("AppleTV"),
+        BlackMatrixPath("AppStore"),
+        BlackMatrixPath("Siri"),
+        BlackMatrixPath("iCloud"),
+        BlackMatrixPath("iCloudPrivateRelay"),
+        BlackMatrixPath("TestFlight"),
+        BlackMatrixPath("FitnessPlus"),
+        BlackMatrixPath("SystemOTA"),
+        BlackMatrixPath("FindMy"),
+        BlackMatrixPath("Beats"),
+    )
+    private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
+        ACL4SSRFile("Apple"),
+        ACL4SSRFile("AppleTV"),
+    )
+
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
-        val appleBlackMatrixFile = BlackMatrixFile("Apple/Apple.list")
-        rules.addAll(appleBlackMatrixFile.rules)
-        val appleDevBlackMatrixFile = BlackMatrixFile("AppleDev/AppleDev.list")
-        rules.addAll(appleDevBlackMatrixFile.rules)
-        val appleFirmwareBlackMatrixFile = BlackMatrixFile("AppleFirmware/AppleFirmware.list")
-        rules.addAll(appleFirmwareBlackMatrixFile.rules)
-        val appleHardwareFirmwareBlackMatrixFile = BlackMatrixFile("AppleHardware/AppleHardware.list")
-        rules.addAll(appleHardwareFirmwareBlackMatrixFile.rules)
-        val appleIDBlackMatrixFile = BlackMatrixFile("AppleID/AppleID.list")
-        rules.addAll(appleIDBlackMatrixFile.rules)
-        val appleMailBlackMatrixFile = BlackMatrixFile("AppleMail/AppleMail.list")
-        rules.addAll(appleMailBlackMatrixFile.rules)
-        val appleMediaBlackMatrixFile = BlackMatrixFile("AppleMedia/AppleMedia.list")
-        rules.addAll(appleMediaBlackMatrixFile.rules)
-        val appleMusicBlackMatrixFile = BlackMatrixFile("AppleMusic/AppleMusic.list")
-        rules.addAll(appleMusicBlackMatrixFile.rules)
-        val appleNewsBlackMatrixFile = BlackMatrixFile("AppleNews/AppleNews.list")
-        rules.addAll(appleNewsBlackMatrixFile.rules)
-        val appleProxyBlackMatrixFile = BlackMatrixFile("AppleProxy/AppleProxy.list")
-        rules.addAll(appleProxyBlackMatrixFile.rules)
-        val appleTVBlackMatrixFile = BlackMatrixFile("AppleTV/AppleTV.list")
-        rules.addAll(appleTVBlackMatrixFile.rules)
-        val appStoreBlackMatrixFile = BlackMatrixFile("AppStore/AppStore.list")
-        rules.addAll(appStoreBlackMatrixFile.rules)
-        val siriBlackMatrixFile = BlackMatrixFile("Siri/Siri.list")
-        rules.addAll(siriBlackMatrixFile.rules)
-        val iCloudBlackMatrixFile = BlackMatrixFile("iCloud/iCloud.list")
-        rules.addAll(iCloudBlackMatrixFile.rules)
-        val iCloudPrivateRelayBlackMatrixFile = BlackMatrixFile("iCloudPrivateRelay/iCloudPrivateRelay.list")
-        rules.addAll(iCloudPrivateRelayBlackMatrixFile.rules)
-        val testFlightBlackMatrixFile = BlackMatrixFile("TestFlight/TestFlight.list")
-        rules.addAll(testFlightBlackMatrixFile.rules)
-        val fitnessPlusBlackMatrixFile = BlackMatrixFile("FitnessPlus/FitnessPlus.list")
-        rules.addAll(fitnessPlusBlackMatrixFile.rules)
-        val systemOTABlackMatrixFile = BlackMatrixFile("SystemOTA/SystemOTA.list")
-        rules.addAll(systemOTABlackMatrixFile.rules)
-        val findMyBlackMatrixFile = BlackMatrixFile("FindMy/FindMy.list")
-        rules.addAll(findMyBlackMatrixFile.rules)
-        val beatsBlackMatrixFile = BlackMatrixFile("Beats/Beats.list")
-        rules.addAll(beatsBlackMatrixFile.rules)
+        rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules })
+        // 读取 ACL4SSR 配置文件
+        rules.addAll(acL4SSRFiles.flatMap { it.rules })
     }
 }

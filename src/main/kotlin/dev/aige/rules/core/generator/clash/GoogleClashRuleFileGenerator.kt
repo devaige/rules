@@ -1,32 +1,40 @@
 package dev.aige.rules.core.generator.clash
 
 import dev.aige.rules.core.entities.ClashRule
+import dev.aige.rules.provider.acl4ssr.entities.ACL4SSRFile
 import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixFile
+import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixPath
 
 class GoogleClashRuleFileGenerator : ClashRuleFileGenerator("Google.list") {
+    private val blackMatrixFilePaths: Set<BlackMatrixPath> = setOf(
+        BlackMatrixPath("Gemini"),
+        BlackMatrixPath("BardAI"),
+        BlackMatrixPath("Google"),
+        BlackMatrixPath("GoogleDrive"),
+        BlackMatrixPath("GoogleEarth"),
+        BlackMatrixPath("GoogleFCM"),
+        BlackMatrixPath("GoogleSearch"),
+        BlackMatrixPath("GoogleVoice"),
+        BlackMatrixPath("YouTube"),
+        BlackMatrixPath("YouTubeMusic"),
+        BlackMatrixPath("Chromecast"),
+    )
+    private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
+        ACL4SSRFile("Gemini"),
+        ACL4SSRFile("Google"),
+        ACL4SSRFile("GoogleCN"),
+        ACL4SSRFile("GoogleCNProxyIP"),
+        ACL4SSRFile("GoogleEarth"),
+        ACL4SSRFile("GoogleFCM"),
+        ACL4SSRFile("Scholar"),
+        ACL4SSRFile("YouTube"),
+        ACL4SSRFile("YouTubeMusic"),
+    )
+
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
-        val geminiBlackMatrixFile = BlackMatrixFile("Gemini/Gemini.list")
-        rules.addAll(geminiBlackMatrixFile.rules)
-        val bardAIBlackMatrixFile = BlackMatrixFile("BardAI/BardAI.list")
-        rules.addAll(bardAIBlackMatrixFile.rules)
-        val googleBlackMatrixFile = BlackMatrixFile("Google/Google.list")
-        rules.addAll(googleBlackMatrixFile.rules)
-        val googleDriveBlackMatrixFile = BlackMatrixFile("GoogleDrive/GoogleDrive.list")
-        rules.addAll(googleDriveBlackMatrixFile.rules)
-        val googleEarthBlackMatrixFile = BlackMatrixFile("GoogleEarth/GoogleEarth.list")
-        rules.addAll(googleEarthBlackMatrixFile.rules)
-        val googleFCMBlackMatrixFile = BlackMatrixFile("GoogleFCM/GoogleFCM.list")
-        rules.addAll(googleFCMBlackMatrixFile.rules)
-        val googleSearchBlackMatrixFile = BlackMatrixFile("GoogleSearch/GoogleSearch.list")
-        rules.addAll(googleSearchBlackMatrixFile.rules)
-        val googleVoiceBlackMatrixFile = BlackMatrixFile("GoogleVoice/GoogleVoice.list")
-        rules.addAll(googleVoiceBlackMatrixFile.rules)
-        val youTubeBlackMatrixFile = BlackMatrixFile("YouTube/YouTube.list")
-        rules.addAll(youTubeBlackMatrixFile.rules)
-        val youTubeMusicBlackMatrixFile = BlackMatrixFile("YouTubeMusic/YouTubeMusic.list")
-        rules.addAll(youTubeMusicBlackMatrixFile.rules)
-        val chromecastBlackMatrixFile = BlackMatrixFile("Chromecast/Chromecast.list")
-        rules.addAll(chromecastBlackMatrixFile.rules)
+        rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules })
+        // 读取 ACL4SSR 配置文件
+        rules.addAll(acL4SSRFiles.flatMap { it.rules })
     }
 }

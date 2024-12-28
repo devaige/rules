@@ -4,12 +4,12 @@ import dev.aige.rules.core.entities.ClashRule
 import java.io.File
 import java.nio.file.Paths
 
-data class BlackMatrixFile(private val filename: String) {
+data class BlackMatrixFile(private val filepath: String) {
     private companion object {
         private val FOLDER: File = Paths.get("blackmatrix/rule/Clash").toAbsolutePath().toFile()
     }
 
-    private val lines: List<String> by lazy { File(FOLDER, filename).readLines() }
+    private val lines: List<String> by lazy { File(FOLDER, filepath).readLines() }
     val rules: Set<ClashRule>
         get() {
             val rules: MutableSet<ClashRule> = mutableSetOf()

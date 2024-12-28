@@ -1,6 +1,7 @@
 package dev.aige.rules.core.generator.clash
 
 import dev.aige.rules.core.entities.ClashRule
+import dev.aige.rules.provider.acl4ssr.entities.ACL4SSRFile
 import dev.aige.rules.provider.blackmatrix.addBlackMatrixFileRules
 import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixPath
 
@@ -304,9 +305,62 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         BlackMatrixPath("STUN"),
         BlackMatrixPath("WeType"),
     )
+    private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
+        ACL4SSRFile("58"),
+        ACL4SSRFile("360"),
+        ACL4SSRFile("4399"),
+        ACL4SSRFile("AccelerateDirectSites"),
+        ACL4SSRFile("Alibaba"),
+        ACL4SSRFile("All4"),
+        ACL4SSRFile("Baidu"),
+        ACL4SSRFile("Bilibili"),
+        ACL4SSRFile("ByteDance"),
+        ACL4SSRFile("CCTV"),
+        ACL4SSRFile("ChinaDNS"),
+        ACL4SSRFile("ChinaNet"),
+        ACL4SSRFile("ChinaOneKeyLogin"),
+        ACL4SSRFile("CN"),
+        ACL4SSRFile("DiDi"),
+        ACL4SSRFile("Douyu"),
+        ACL4SSRFile("Download"),
+        ACL4SSRFile("Heytap"),
+        ACL4SSRFile("HuaWei"),
+        ACL4SSRFile("Iflytek"),
+        ACL4SSRFile("Iqiyi"),
+        ACL4SSRFile("JD"),
+        ACL4SSRFile("Kingsoft"),
+        ACL4SSRFile("Kuaishou"),
+        ACL4SSRFile("LeTV"),
+        ACL4SSRFile("Marketing"),
+        ACL4SSRFile("Meitu"),
+        ACL4SSRFile("MGTVTV"),
+        ACL4SSRFile("MI"),
+        ACL4SSRFile("MIUIPrivacy"),
+        ACL4SSRFile("MOO"),
+        ACL4SSRFile("NaSDDNS"),
+        ACL4SSRFile("NetEase"),
+        ACL4SSRFile("NetEaseMusic"),
+        ACL4SSRFile("PDD"),
+        ACL4SSRFile("PPTVPPLive"),
+        ACL4SSRFile("PublicDirectCDN"),
+        ACL4SSRFile("RemoteDesktop"),
+        ACL4SSRFile("SohuSogo"),
+        ACL4SSRFile("TapTap"),
+        ACL4SSRFile("TeamViewer"),
+        ACL4SSRFile("Tencent"),
+        ACL4SSRFile("TencentLolm"),
+        ACL4SSRFile("TencentVideo"),
+        ACL4SSRFile("Vip"),
+        ACL4SSRFile("Wechat"),
+        ACL4SSRFile("Ximalaya"),
+        ACL4SSRFile("Xunlei"),
+        ACL4SSRFile("Youku"),
+    )
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
         blackMatrixFilePrefix.forEach { rules.addBlackMatrixFileRules(it) }
+        // 读取 ACL4SSR 配置文件
+        rules.addAll(acL4SSRFiles.flatMap { it.rules })
     }
 }
