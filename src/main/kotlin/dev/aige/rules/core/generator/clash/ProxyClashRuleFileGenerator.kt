@@ -34,7 +34,7 @@ class ProxyClashRuleFileGenerator : ClashRuleFileGenerator("Proxy.list") {
         BlackMatrixPath("Line"),
         BlackMatrixPath("Netflix"),
         BlackMatrixPath("Dubox"),
-        BlackMatrixPath("TikTok"),
+//        BlackMatrixPath("TikTok"),// 这个配置有点问题，会把很多头条系的服务算进去
         BlackMatrixPath("Disney"),
         BlackMatrixPath("Twitter"),
         BlackMatrixPath("Cloudflare"),
