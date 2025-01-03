@@ -15,7 +15,8 @@ class TikTokClashRuleFileGenerator : ClashRuleFileGenerator("TikTok.list") {
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
-        rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules })
+        // BlackMatrix 的配置很多和国内的域名 IP 重合先关闭掉
+//        rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules })
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules })
     }
