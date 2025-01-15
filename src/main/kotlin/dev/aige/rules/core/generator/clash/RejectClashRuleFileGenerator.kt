@@ -7,17 +7,12 @@ import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixPath
 
 class RejectClashRuleFileGenerator : ClashRuleFileGenerator("Reject.list") {
     private val blackMatrixFilePrefix: Set<BlackMatrixPath> = setOf(
-        BlackMatrixPath("AdvertisingLite"),
-        BlackMatrixPath("Advertising"),
-        BlackMatrixPath("AdvertisingTest"),
         BlackMatrixPath("ZhihuAds"),
         BlackMatrixPath("AdvertisingMiTV"),
         BlackMatrixPath("AdvertisingLite"),
         BlackMatrixPath("Advertising"),
-        BlackMatrixPath("AdvertisingTest"),
         BlackMatrixPath("Hijacking"),
         BlackMatrixPath("Privacy"),
-        BlackMatrixPath("ZhihuAds"),
         BlackMatrixPath("AdGuardSDNSFilter"),
         BlackMatrixPath("EasyPrivacy"),
         BlackMatrixPath("BlockHttpDNS"),
