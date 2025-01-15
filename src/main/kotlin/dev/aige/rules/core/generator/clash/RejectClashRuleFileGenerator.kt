@@ -10,7 +10,6 @@ class RejectClashRuleFileGenerator : ClashRuleFileGenerator("Reject.list") {
         BlackMatrixPath("AdvertisingLite"),
         BlackMatrixPath("Advertising"),
         BlackMatrixPath("AdvertisingTest"),
-        BlackMatrixPath("Direct"),
         BlackMatrixPath("ZhihuAds"),
         BlackMatrixPath("AdvertisingMiTV"),
         BlackMatrixPath("AdvertisingLite"),
