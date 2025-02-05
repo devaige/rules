@@ -25,5 +25,8 @@ class OpenAIClashRuleFileGenerator : ClashRuleFileGenerator("OpenAI.list") {
         rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules - skip })
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules - skip })
+        // 自定义配置
+        // 参考：
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "sora.com"))
     }
 }
