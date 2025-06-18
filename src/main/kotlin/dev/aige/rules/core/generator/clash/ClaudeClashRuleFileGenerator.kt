@@ -20,5 +20,8 @@ class ClaudeClashRuleFileGenerator : ClashRuleFileGenerator("Claude.list") {
         rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules })
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules })
+        // 添加一些自定义的规则
+        // 参考：https://gist.github.com/sarices/017da597ae6b28063bbdd52693d78385
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "claudeusercontent.com"))
     }
 }

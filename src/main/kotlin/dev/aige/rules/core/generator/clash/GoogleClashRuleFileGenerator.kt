@@ -15,8 +15,6 @@ class GoogleClashRuleFileGenerator : ClashRuleFileGenerator("Google.list") {
         BlackMatrixPath("GoogleFCM"),
         BlackMatrixPath("GoogleSearch"),
         BlackMatrixPath("GoogleVoice"),
-        BlackMatrixPath("YouTube"),
-        BlackMatrixPath("YouTubeMusic"),
         BlackMatrixPath("Chromecast"),
     )
     private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
@@ -27,8 +25,6 @@ class GoogleClashRuleFileGenerator : ClashRuleFileGenerator("Google.list") {
         ACL4SSRFile("GoogleEarth"),
         ACL4SSRFile("GoogleFCM"),
         ACL4SSRFile("Scholar"),
-        ACL4SSRFile("YouTube"),
-        ACL4SSRFile("YouTubeMusic"),
     )
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->

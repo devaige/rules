@@ -33,6 +33,7 @@ private val generators: List<RuleFileGenerator<*>> = listOf(
     EAClashRuleFileGenerator(),
     ProxyClashRuleFileGenerator(),
     RejectClashRuleFileGenerator(),
+    YoutubeClashRuleFileGenerator(),
 )
 
 fun main() = runBlocking {
