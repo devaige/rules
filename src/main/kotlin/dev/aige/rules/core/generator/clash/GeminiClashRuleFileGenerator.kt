@@ -5,23 +5,13 @@ import dev.aige.rules.provider.acl4ssr.entities.ACL4SSRFile
 import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixFile
 import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixPath
 
-class GoogleClashRuleFileGenerator : ClashRuleFileGenerator("Google.list") {
+class GeminiClashRuleFileGenerator : ClashRuleFileGenerator("Gemini.list") {
     private val blackMatrixFilePaths: Set<BlackMatrixPath> = setOf(
-        BlackMatrixPath("Google"),
-        BlackMatrixPath("GoogleDrive"),
-        BlackMatrixPath("GoogleEarth"),
-        BlackMatrixPath("GoogleFCM"),
-        BlackMatrixPath("GoogleSearch"),
-        BlackMatrixPath("GoogleVoice"),
-        BlackMatrixPath("Chromecast"),
+        BlackMatrixPath("Gemini"),
+        BlackMatrixPath("BardAI"),
     )
     private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
-        ACL4SSRFile("Google"),
-        ACL4SSRFile("GoogleCN"),
-        ACL4SSRFile("GoogleCNProxyIP"),
-        ACL4SSRFile("GoogleEarth"),
-        ACL4SSRFile("GoogleFCM"),
-        ACL4SSRFile("Scholar"),
+        ACL4SSRFile("Gemini"),
     )
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
