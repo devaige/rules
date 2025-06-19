@@ -23,5 +23,10 @@ class ClaudeClashRuleFileGenerator : ClashRuleFileGenerator("Claude.list") {
         // 添加一些自定义的规则
         // 参考：https://gist.github.com/sarices/017da597ae6b28063bbdd52693d78385
         rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "claudeusercontent.com"))
+        // 参考：https://github.com/szkane/ClashRuleSet/blob/36a41f03fe1fa5f806053c0248db0c95da003a51/Clash/Ruleset/AiDomain.list#L19
+        rules.add(ClashRule(ClashRule.Type.PROCESS_NAME, "Claude"))
+        rules.add(ClashRule(ClashRule.Type.PROCESS_NAME, "Claude Helper"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_KEYWORD, "claude"))
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_SUFFIX, "usefathom.com"))
     }
 }
