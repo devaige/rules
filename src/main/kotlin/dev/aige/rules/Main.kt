@@ -34,6 +34,7 @@ private val generators: List<RuleFileGenerator<*>> = listOf(
     ProxyClashRuleFileGenerator(),
     RejectClashRuleFileGenerator(),
     YoutubeClashRuleFileGenerator(),
+    GrokClashRuleFileGenerator(),
 )
 
 fun main() = runBlocking {
