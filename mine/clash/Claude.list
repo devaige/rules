@@ -3,3 +3,7 @@ DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
 DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN-SUFFIX,claudeusercontent.com
+PROCESS-NAME,Claude
+PROCESS-NAME,Claude Helper
+DOMAIN-KEYWORD,claude
+DOMAIN-SUFFIX,usefathom.com

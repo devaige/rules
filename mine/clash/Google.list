@@ -1,17 +1,3 @@
-DOMAIN,ai.google.dev
-DOMAIN,alkalimakersuite-pa.clients6.google.com
-DOMAIN,makersuite.google.com
-DOMAIN-SUFFIX,bard.google.com
-DOMAIN-SUFFIX,deepmind.com
-DOMAIN-SUFFIX,deepmind.google
-DOMAIN-SUFFIX,gemini.google.com
-DOMAIN-SUFFIX,generativeai.google
-DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
-DOMAIN-SUFFIX,apis.google.com
-DOMAIN-KEYWORD,colab
-DOMAIN-KEYWORD,developerprofiles
-DOMAIN-KEYWORD,generativelanguage
-DOMAIN,generativelanguage.googleapis.com
 DOMAIN,voice.telephony.goog
 DOMAIN-SUFFIX,0emm.com
 DOMAIN-SUFFIX,1e100.net
@@ -197,6 +183,7 @@ DOMAIN-SUFFIX,data-vocabulary.org
 DOMAIN-SUFFIX,dataliberation.org
 DOMAIN-SUFFIX,debug.com
 DOMAIN-SUFFIX,debugproject.com
+DOMAIN-SUFFIX,deepmind.com
 DOMAIN-SUFFIX,deja.com
 DOMAIN-SUFFIX,deps.dev
 DOMAIN-SUFFIX,deps.info
