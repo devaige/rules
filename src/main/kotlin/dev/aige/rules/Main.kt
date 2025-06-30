@@ -36,6 +36,7 @@ private val generators: List<RuleFileGenerator<*>> = listOf(
     YoutubeClashRuleFileGenerator(),
     GrokClashRuleFileGenerator(),
     GeminiClashRuleFileGenerator(),
+    MiningClashRuleFileGenerator(),
 )
 
 fun main() = runBlocking {
