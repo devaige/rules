@@ -10,17 +10,13 @@ class GoogleClashRuleFileGenerator : ClashRuleFileGenerator("Google.list") {
         BlackMatrixPath("Google"),
         BlackMatrixPath("GoogleDrive"),
         BlackMatrixPath("GoogleEarth"),
-        BlackMatrixPath("GoogleFCM"),
         BlackMatrixPath("GoogleSearch"),
         BlackMatrixPath("GoogleVoice"),
         BlackMatrixPath("Chromecast"),
     )
     private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
         ACL4SSRFile("Google"),
-        ACL4SSRFile("GoogleCN"),
-        ACL4SSRFile("GoogleCNProxyIP"),
         ACL4SSRFile("GoogleEarth"),
-        ACL4SSRFile("GoogleFCM"),
         ACL4SSRFile("Scholar"),
     )
 

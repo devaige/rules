@@ -304,6 +304,7 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         BlackMatrixPath("Atomdata"),
         BlackMatrixPath("STUN"),
         BlackMatrixPath("WeType"),
+        BlackMatrixPath("GoogleFCM"),
     )
     private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
         ACL4SSRFile("58"),
@@ -355,6 +356,9 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         ACL4SSRFile("Ximalaya"),
         ACL4SSRFile("Xunlei"),
         ACL4SSRFile("Youku"),
+        ACL4SSRFile("GoogleCN"),
+        ACL4SSRFile("GoogleCNProxyIP"),
+        ACL4SSRFile("GoogleFCM"),
     )
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->

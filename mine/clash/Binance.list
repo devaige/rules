@@ -202,6 +202,7 @@ DOMAIN-SUFFIX,ftx.com
 DOMAIN-KEYWORD,metamask
 DOMAIN,token-api.metaswap.codefi.network
 DOMAIN,min-api.cryptocompare.com
+DOMAIN-SUFFIX,infura.io
 DOMAIN-SUFFIX,opensea.io
 DOMAIN-SUFFIX,nftscan.com
 DOMAIN-SUFFIX,makersplace.com
