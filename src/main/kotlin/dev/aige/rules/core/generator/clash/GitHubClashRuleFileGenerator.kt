@@ -8,6 +8,7 @@ import dev.aige.rules.provider.blackmatrix.entities.BlackMatrixPath
 class GitHubClashRuleFileGenerator : ClashRuleFileGenerator("GitHub.list") {
     private val blackMatrixFilePaths: Set<BlackMatrixPath> = setOf(
         BlackMatrixPath("GitHub"),
+        BlackMatrixPath("GitLab"),
     )
     private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(
         ACL4SSRFile("GitHub"),
