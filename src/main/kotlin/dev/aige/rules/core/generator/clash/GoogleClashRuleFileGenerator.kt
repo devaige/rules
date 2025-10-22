@@ -25,5 +25,6 @@ class GoogleClashRuleFileGenerator : ClashRuleFileGenerator("Google.list") {
         rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules })
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules })
+        rules.add(ClashRule(ClashRule.Type.DOMAIN, "analytics.google.com"))
     }
 }
