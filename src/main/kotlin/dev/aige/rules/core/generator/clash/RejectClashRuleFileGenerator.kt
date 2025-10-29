@@ -23,7 +23,11 @@ class RejectClashRuleFileGenerator : ClashRuleFileGenerator("Reject.list") {
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
-        blackMatrixFilePrefix.forEach { rules.addBlackMatrixFileRules(it) }
+        blackMatrixFilePrefix.forEach {
+            rules.addBlackMatrixFileRules(it) { rule: ClashRule ->
+                rule.argument.contains("customeriomail").not()// 排除掉所有域名中包含 customeriomail 的规则不执行拒绝操作
+            }
+        }
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules })
     }

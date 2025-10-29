@@ -363,7 +363,11 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
 
     override suspend fun generate() = write { rules: MutableSet<ClashRule> ->
         // 读取 BlackMatrix 配置文件
-        blackMatrixFilePrefix.forEach { rules.addBlackMatrixFileRules(it) }
+        blackMatrixFilePrefix.forEach {
+            rules.addBlackMatrixFileRules(it) { rule: ClashRule ->
+                rule.argument != "cdn.jsdelivr.net"// 排除掉 cdn.jsdelivr.net 不走直连
+            }
+        }
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules })
         // 添加一些自定义的规则
