@@ -19,5 +19,7 @@ class GeminiClashRuleFileGenerator : ClashRuleFileGenerator("Gemini.list") {
         rules.addAll(blackMatrixFilePaths.flatMap { BlackMatrixFile(it.path).rules })
         // 读取 ACL4SSR 配置文件
         rules.addAll(acL4SSRFiles.flatMap { it.rules })
+        // 添加 Google Antigravity 代理
+        rules.add(ClashRule(ClashRule.Type.DOMAIN_KEYWORD, "antigravity"))
     }
 }
