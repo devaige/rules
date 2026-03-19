@@ -201,7 +201,6 @@ DOMAIN-SUFFIX,ewapool.net
 DOMAIN-SUFFIX,ftx.com
 DOMAIN-KEYWORD,metamask
 DOMAIN,token-api.metaswap.codefi.network
-DOMAIN,min-api.cryptocompare.com
 DOMAIN-SUFFIX,infura.io
 DOMAIN-SUFFIX,opensea.io
 DOMAIN-SUFFIX,nftscan.com
@@ -214,10 +213,7 @@ DOMAIN-SUFFIX,nftgo.io
 DOMAIN-SUFFIX,filecoin.io
 DOMAIN-SUFFIX,docs.lotu.sh
 DOMAIN-SUFFIX,ipfs.io
-DOMAIN-SUFFIX,docs.ipfs.io
-DOMAIN-SUFFIX,discuss.ipfs.io
 DOMAIN-SUFFIX,eos.io
-DOMAIN-SUFFIX,developers.eos.io
 DOMAIN-SUFFIX,block.one
 DOMAIN-SUFFIX,eostracker.io
 DOMAIN-SUFFIX,eosflare.io
