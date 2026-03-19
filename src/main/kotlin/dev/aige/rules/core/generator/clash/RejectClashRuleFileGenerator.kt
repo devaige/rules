@@ -10,11 +10,9 @@ class RejectClashRuleFileGenerator : ClashRuleFileGenerator("Reject.list") {
         BlackMatrixPath("ZhihuAds"),
         BlackMatrixPath("AdvertisingMiTV"),
         BlackMatrixPath("AdvertisingLite"),
-        BlackMatrixPath("Advertising"),
+        // 已移除 Advertising(248k)、AdGuardSDNSFilter(109k)、EasyPrivacy(40k) 三个超大库，改用 AdvertisingLite 以大幅压缩体积
         BlackMatrixPath("Hijacking"),
         BlackMatrixPath("Privacy"),
-        BlackMatrixPath("AdGuardSDNSFilter"),
-        BlackMatrixPath("EasyPrivacy"),
         BlackMatrixPath("BlockHttpDNS"),
     )
     private val acL4SSRFiles: Set<ACL4SSRFile> = setOf(

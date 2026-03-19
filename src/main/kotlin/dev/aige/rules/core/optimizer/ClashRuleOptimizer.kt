@@ -20,8 +20,15 @@ object ClashRuleOptimizer {
     fun optimize(rules: Set<ClashRule>): Set<ClashRule> {
         val result = rules.toMutableSet()
         deduplicateDomains(result)
-        aggregateIpCidr(result)
-        aggregateIpCidr6(result)
+        // 若存在 GEOIP,CN,no-resolve，则所有 IP-CIDR/6 规则均被其覆盖，可安全移除
+        if (result.any { it.type == ClashRule.Type.GEO_IP && it.argument == "CN" && it.isDNSResolve }) {
+            result.removeAll(result.filter {
+                it.type == ClashRule.Type.IP_CIDR || it.type == ClashRule.Type.IP_CIDR6
+            }.toSet())
+        } else {
+            aggregateIpCidr(result)
+            aggregateIpCidr6(result)
+        }
         return result
     }
 

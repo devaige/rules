@@ -21,8 +21,6 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         BlackMatrixPath("ByteDance"),
         BlackMatrixPath("China"),
         BlackMatrixPath("ChinaTest"),
-        BlackMatrixPath("ChinaIPs"),
-        BlackMatrixPath("ChinaIPs"),
         BlackMatrixPath("CCTV"),
         BlackMatrixPath("Xunlei"),
         BlackMatrixPath("Huawei"),
@@ -209,7 +207,6 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         BlackMatrixPath("LianMeng"),
         BlackMatrixPath("WeiZhiYunDong"),
         BlackMatrixPath("8btc"),
-        BlackMatrixPath("ChinaIPsBGP"),
         BlackMatrixPath("ChengTongWangPan"),
         BlackMatrixPath("ChinaMax"),
         BlackMatrixPath("DuoWan"),
@@ -219,7 +216,6 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         BlackMatrixPath("WeChat"),
         BlackMatrixPath("WeChat"),
         BlackMatrixPath("ShiJiChaoXing"),
-        BlackMatrixPath("ChinaIPs/ChinaIPsTest", "ChinaIPsTest"),
         BlackMatrixPath("QuickConnect"),
         BlackMatrixPath("WoLai"),
         BlackMatrixPath("Zhihu"),
@@ -385,5 +381,7 @@ class DirectClashRuleFileGenerator : ClashRuleFileGenerator("Direct.list") {
         rules.add(ClashRule(ClashRule.Type.PROCESS_NAME, "360jiaguApp"))
         rules.add(ClashRule(ClashRule.Type.DST_PORT, "22"))
         rules.add(ClashRule(ClashRule.Type.DST_PORT, "9128"))
+        // 使用 GEOIP 规则覆盖所有中国 IP（替代原 ChinaIPs / ChinaIPsBGP / ChinaIPsTest 明细列表）
+        rules.add(ClashRule(ClashRule.Type.GEO_IP, "CN", true))
     }
 }
