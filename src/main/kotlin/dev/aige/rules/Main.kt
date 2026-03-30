@@ -2,6 +2,7 @@ package dev.aige.rules
 
 import dev.aige.rules.core.generator.RuleFileGenerator
 import dev.aige.rules.core.generator.clash.*
+import dev.aige.rules.core.generator.clash.area.USClashRuleFileGenerator
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Semaphore
@@ -37,6 +38,7 @@ private val generators: List<RuleFileGenerator<*>> = listOf(
     GrokClashRuleFileGenerator(),
     GeminiClashRuleFileGenerator(),
     MiningClashRuleFileGenerator(),
+    USClashRuleFileGenerator(),
 )
 
 fun main() = runBlocking {

@@ -20,6 +20,5 @@ abstract class ClashRuleFileGenerator(filename: String) : RuleFileGenerator<Clas
     /**
      * 对所有 Clash 规则文件自动执行优化（域名去冗 + IP-CIDR 聚合）。
      */
-    override fun postProcess(rules: MutableSet<ClashRule>): Set<ClashRule> =
-        ClashRuleOptimizer.optimize(rules)
+    override fun postProcess(rules: MutableSet<ClashRule>): Set<ClashRule> = ClashRuleOptimizer.optimize(rules)
 }
